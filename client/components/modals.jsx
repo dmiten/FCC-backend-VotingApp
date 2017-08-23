@@ -117,6 +117,7 @@ function onClick(actionName) { // ◄---------------------- shared onClick handl
       sessionStorage.removeItem("userId");
       sessionStorage.removeItem("ownPollsId");
       sessionStorage.removeItem("ownPolls");
+      this.ownPolls = [];
       this.setState({
         ownPollsId: [],
         currentPoll: {},
