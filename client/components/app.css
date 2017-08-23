@@ -22,7 +22,8 @@
   font-size: 50%;
 }
 
-.navpullright {
+.polloptions {
+  margin: 5px auto;
 }
 
 .forminput{
@@ -35,5 +36,5 @@
 }
 
 .pollbutton {
-  margin-right: 15px;
+  margin: 10px;
 }

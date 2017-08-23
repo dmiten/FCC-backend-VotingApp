@@ -6,6 +6,7 @@ import { Chart } from "react-google-charts";
 import ClipboardButton from "react-clipboard.js";
 import {
   Button,
+  ButtonToolbar,
   ControlLabel,
   Form,
   FormControl,
@@ -169,7 +170,7 @@ export function renderPoll(poll) {
       conditionalButtonDelete = () => { // ◄--------------------- for owner only
         if (poll.owner === this.state.userId) {
           return (
-              <Button className="pull-right"
+              <Button className="pull-right pollbutton"
                       bsStyle="danger"
                       onClick={onClickDelete}>
                 delete
@@ -212,18 +213,20 @@ export function renderPoll(poll) {
                    height="300px"
                    legend_toggle
                    />
-            <Button className="btn btn-primary pollbutton"
-                    onClick={() => {
-                      this.setState({
-                        additional: "",
-                        mode: this.state.prevMode
-                      })
-                    }}>
-              close
-            </Button>
-            {renderLink()}
-            {conditionalButtonSubmit()}
-            {conditionalButtonDelete()}
+            <ButtonToolbar>
+              <Button className="btn btn-primary pollbutton"
+                      onClick={() => {
+                        this.setState({
+                          additional: "",
+                          mode: this.state.prevMode
+                        })
+                      }}>
+                close
+              </Button>
+              {renderLink()}
+              {conditionalButtonSubmit()}
+              {conditionalButtonDelete()}
+            </ButtonToolbar>
           </div>
         </Panel>
     )
