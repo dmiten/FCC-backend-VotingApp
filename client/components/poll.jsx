@@ -202,7 +202,7 @@ export function renderPoll(poll) {
         <Panel id="pollpanel"
                bsStyle="info"
                key={poll._id}
-               header={poll.details.question}>
+               header={conditionalPollHeader.bind(this)(poll)}>
           <div>
             {conditionalForm()}
             <Chart chartType="PieChart"
@@ -230,6 +230,18 @@ export function renderPoll(poll) {
           </div>
         </Panel>
     )
+}
+
+export function conditionalPollHeader(poll) {
+  if (poll.owner === this.state.userId) {
+    return (
+        poll.details.voted.length + " voted: " + poll.details.question
+    )
+  } else {
+    return (
+        poll.details.question
+    )
+  }
 }
 
 export function getPollDetails(pollId) { // ◄---------- get poll's details by id

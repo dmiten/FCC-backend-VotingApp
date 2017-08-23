@@ -7,7 +7,7 @@ import {
   Panel
 } from "react-bootstrap";
 
-import { getPollDetails } from "./poll.jsx";
+import { getPollDetails, conditionalPollHeader } from "./poll.jsx";
 
 export default function list(polls) {
 
@@ -19,7 +19,7 @@ export default function list(polls) {
         <Panel id="pollpanel"
                bsStyle="info"
                key={polls[i]._id}
-               header={polls[i].details.question}>
+               header={conditionalPollHeader.bind(this)(polls[i])}>
           <Button bsStyle="info"
                   onClick={() => {
                     getPollDetails(polls[i]._id)
